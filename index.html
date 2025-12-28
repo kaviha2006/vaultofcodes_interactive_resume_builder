@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumify - Professional Resume Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- LANDING PAGE -->
+    <header id="landing-page" class="landing-page">
+        <nav class="navbar">
+            <div class="logo" onclick="goHome()">
+                <i class="fa-solid fa-file-signature"></i> Resumify
+            </div>
+            <div class="nav-links">
+                <a onclick="scrollToSection('features')">Features</a>
+                <a onclick="scrollToSection('templates')">Templates</a>
+                <button id="btn-theme-toggle-landing" class="btn btn-secondary btn-icon" title="Toggle Dark Mode"
+                    style="border:none; background:transparent;"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Create a <span class="highlight">Job-Winning</span> Resume in Minutes</h1>
+                <p>Build a professional, ATS-friendly resume with our advanced AI-powered platform. No design skills
+                    needed.</p>
+                <div class="cta-group">
+                    <button id="btn-build-resume" class="btn btn-primary btn-lg" onclick="enterBuilder()">Build My
+                        Resume <i class="fa-solid fa-arrow-right"></i></button>
+                    <button id="btn-analyze-hero" class="btn btn-outline btn-lg"><i
+                            class="fa-solid fa-magnifying-glass"></i> Analyze My Resume</button>
+                </div>
+                <div class="trust-badges">
+                    <span><i class="fa-solid fa-check-circle"></i> Free to use</span>
+                    <span><i class="fa-solid fa-check-circle"></i> Real-time Preview</span>
+                    <span><i class="fa-solid fa-check-circle"></i> PDF Download</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="resume-mockup">
+                    <div class="mockup-header"></div>
+                    <div class="mockup-body">
+                        <div class="mockup-line title"></div>
+                        <div class="mockup-line subtitle"></div>
+                        <br>
+                        <div class="mockup-row">
+                            <div class="mockup-col"></div>
+                            <div class="mockup-col wide"></div>
+                        </div>
+                        <div class="mockup-row">
+                            <div class="mockup-col"></div>
+                            <div class="mockup-col wide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section id="features" class="section-padding bg-light">
+            <h2 class="section-title">Why Choose Resumify?</h2>
+            <p class="section-subtitle">We provide the tools you need to get hired faster.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-wand-magic-sparkles feature-icon"></i>
+                    <h3>Smart Builder</h3>
+                    <p>Easy step-by-step builder with professional suggestions.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-eye feature-icon"></i>
+                    <h3>Live Preview</h3>
+                    <p>See changes instantly as you type. No guessing games.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-chart-pie feature-icon"></i>
+                    <h3>Resume Analysis</h3>
+                    <p>Get instant feedback on your resume strength and keywords.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-file-pdf feature-icon"></i>
+                    <h3>Instant Download</h3>
+                    <p>Download your resume in standard PDF format instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-robot feature-icon"></i>
+                    <h3>ATS Friendly</h3>
+                    <p>Optimized layouts to ensure you get past applicant tracking systems.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-user-shield feature-icon"></i>
+                    <h3>Secure & Private</h3>
+                    <p>No account required. Your data stays in your browser's local storage.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEMPLATES SECTION -->
+        <section id="templates" class="section-padding">
+            <h2 class="section-title">Pick a Template</h2>
+            <p class="section-subtitle">Choose from our curated collection of CV templates to start building.</p>
+
+            <div class="features-grid templates-grid">
+                <!-- Modern -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('modern')">
+                    <div class="template-preview modern"></div>
+                    <h3>Modern Clean</h3>
+                    <p>Tech & Creative</p>
+                </div>
+                <!-- Minimal -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('minimal')">
+                    <div class="template-preview minimal"></div>
+                    <h3>Minimalist</h3>
+                    <p>Simple & Elegant</p>
+                </div>
+                <!-- Professional -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('professional')">
+                    <div class="template-preview professional"></div>
+                    <h3>Executive</h3>
+                    <p>Corporate & Senior</p>
+                </div>
+                <!-- Creative -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('modern')">
+                    <div class="template-preview creative"
+                        style="background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);"></div>
+                    <h3>Creative</h3>
+                    <p>Designers & Artists</p>
+                </div>
+                <!-- Academic -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('minimal')">
+                    <div class="template-preview academic" style="border-top: 5px solid #333;"></div>
+                    <h3>Academic</h3>
+                    <p>Researchers & Students</p>
+                </div>
+                <!-- Simple -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('minimal')">
+                    <div class="template-preview simple" style="background: #fff;"></div>
+                    <h3>Simple</h3>
+                    <p>Entry Level</p>
+                </div>
+                <!-- Tech -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('professional')">
+                    <div class="template-preview tech" style="border-left: 5px solid #4F46E5;"></div>
+                    <h3>Tech</h3>
+                    <p>Developers</p>
+                </div>
+                <!-- Startup -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('modern')">
+                    <div class="template-preview startup" style="background: #f0fdf4;"></div>
+                    <h3>Startup</h3>
+                    <p>Modern Companies</p>
+                </div>
+                <!-- Classic -->
+                <div class="feature-card template-card" onclick="selectTemplateAndBuild('minimal')">
+                    <div class="template-preview classic" style="border: 2px solid #000;"></div>
+                    <h3>Classic</h3>
+                    <p>Traditional</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align:center; padding: 40px; color: #64748b; font-size: 0.9rem;">
+            &copy; 2025 Resumify. All rights reserved.
+        </footer>
+    </header>
+
+
+    <!-- RESUME BUILDER APPLICATION (Hidden by default) -->
+    <main id="app-container" class="app-container hidden">
+
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo small" onclick="goHome()">
+                <i class="fa-solid fa-file-signature"></i> Resumify
+            </div>
+
+            <div class="app-controls">
+                <div class="score-container">
+                    <div class="circular-chart" id="score-chart">
+                        <svg viewBox="0 0 36 36" class="circular-chart-svg">
+                            <path class="circle-bg"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="circle" id="score-circle" stroke-dasharray="0, 100"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <span id="score-text" class="score-text">0%</span>
+                    </div>
+                    <div class="score-details">
+                        <span class="score-label">Strength</span>
+                        <span id="score-status" class="score-status weak">Weak</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="btn-theme-toggle" class="btn btn-secondary btn-icon" title="Toggle Dark Mode"><i
+                            class="fa-solid fa-moon"></i></button>
+                    <button id="btn-download" class="btn btn-secondary"><i class="fa-solid fa-download"></i>
+                        PDF</button>
+                    <button id="btn-reset" class="btn btn-danger-outline"><i class="fa-solid fa-trash"></i>
+                        Reset</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="editor-layout">
+            <!-- SIDEBAR FORM -->
+            <aside class="editor-sidebar">
+                <div class="sidebar-scroll">
+
+                    <!-- Suggestions Panel -->
+                    <div class="suggestions-panel" id="suggestions-panel">
+                        <h3><i class="fa-solid fa-lightbulb"></i> AI Improvements</h3>
+                        <ul id="suggestion-list">
+                            <li>Add your email address</li>
+                        </ul>
+                    </div>
+
+                    <form id="resume-form">
+
+                        <!-- Basic Info -->
+                        <section class="form-section expanded">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <h2><i class="fa-solid fa-user"></i> Personal Details</h2>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" name="fullName" placeholder="e.g. John Doe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Job Title</label>
+                                        <input type="text" name="jobTitle" placeholder="e.g. Frontend Developer">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email" placeholder="e.g. john@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="tel" name="phone" placeholder="e.g. +1 234 567 890">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <input type="text" name="location" placeholder="e.g. New York, USA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>LinkedIn</label>
+                                        <input type="text" name="linkedin" placeholder="linkedin.com/in/johndoe">
+                                    </div>
+                                    <div class="form-group full">
+                                        <label>Portfolio / Website</label>
+                                        <input type="text" name="website" placeholder="www.johndoe.com">
+                                    </div>
+                                    <div class="form-group full">
+                                        <label>Profile Summary</label>
+                                        <textarea name="summary" rows="4"
+                                            placeholder="Briefly describe your experience and goals..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Education -->
+                        <section class="form-section">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="education-list"></div>
+                                <button type="button" class="btn-add" onclick="addEducationField()">+ Add
+                                    Education</button>
+                            </div>
+                        </section>
+
+                        <!-- Experience -->
+                        <section class="form-section">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="experience-list"></div>
+                                <button type="button" class="btn-add" onclick="addExperienceField()">+ Add
+                                    Experience</button>
+                            </div>
+                        </section>
+
+                        <!-- Projects -->
+                        <section class="form-section">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <h2><i class="fa-solid fa-code"></i> Projects</h2>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="project-list"></div>
+                                <button type="button" class="btn-add" onclick="addProjectField()">+ Add Project</button>
+                            </div>
+                        </section>
+
+                        <!-- Skills -->
+                        <section class="form-section">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <h2><i class="fa-solid fa-layer-group"></i> Skills</h2>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group full">
+                                    <label>Add Skills (Press Enter)</label>
+                                    <div class="tags-input-container" id="skills-container">
+                                        <input type="text" id="skill-input" placeholder="Type skill & enter...">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Achievements -->
+                        <section class="form-section">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <h2><i class="fa-solid fa-trophy"></i> Achievements</h2>
+                                <i class="fa-solid fa-chevron-down arrow"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="achievement-list"></div>
+                                <button type="button" class="btn-add" onclick="addAchievementField()">+ Add
+                                    Achievement</button>
+                            </div>
+                        </section>
+
+                    </form>
+                </div>
+            </aside>
+
+            <!-- PREVIEW AREA -->
+            <section class="editor-preview">
+                <div class="preview-toolbar">
+                    <div class="template-selector">
+                        <label>Template:</label>
+                        <select id="template-select">
+                            <option value="modern">Modern</option>
+                            <option value="minimal">Minimal</option>
+                            <option value="professional">Professional</option>
+                        </select>
+                    </div>
+                    <div class="zoom-controls">
+                        <button onclick="zoomPreview(-0.1)"><i class="fa-solid fa-minus"></i></button>
+                        <button onclick="zoomPreview(0.1)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="resume-paper-container">
+                    <div id="resume-preview" class="resume-paper modern">
+                        <div class="resume-header">
+                            <h1 id="preview-name">Your Name</h1>
+                            <p id="preview-title" class="job-title">Job Title</p>
+                            <div class="contact-info">
+                                <span id="preview-email"><i class="fa-solid fa-envelope"></i> email@example.com</span>
+                                <span id="preview-phone"><i class="fa-solid fa-phone"></i> +1 234 567 8900</span>
+                                <span id="preview-location"><i class="fa-solid fa-map-marker-alt"></i> Location</span>
+                                <span id="preview-linkedin"><i class="fa-brands fa-linkedin"></i>
+                                    linkedin.com/in/user</span>
+                                <span id="preview-website"><i class="fa-solid fa-globe"></i> website.com</span>
+                            </div>
+                        </div>
+
+                        <div class="resume-body">
+                            <section class="resume-section" id="preview-summary-section">
+                                <h3>Profile</h3>
+                                <hr>
+                                <p id="preview-summary">Professional summary goes here...</p>
+                            </section>
+
+                            <section class="resume-section" id="preview-experience-section">
+                                <h3>Experience</h3>
+                                <hr>
+                                <div id="preview-experience-list"></div>
+                            </section>
+
+                            <section class="resume-section" id="preview-education-section">
+                                <h3>Education</h3>
+                                <hr>
+                                <div id="preview-education-list"></div>
+                            </section>
+
+                            <section class="resume-section" id="preview-projects-section">
+                                <h3>Projects</h3>
+                                <hr>
+                                <div id="preview-project-list"></div>
+                            </section>
+
+                            <section class="resume-section" id="preview-skills-section">
+                                <h3>Skills</h3>
+                                <hr>
+                                <div id="preview-skills-list" class="skills-grid"></div>
+                            </section>
+
+                            <section class="resume-section" id="preview-achievements-section">
+                                <h3>Achievements</h3>
+                                <hr>
+                                <div id="preview-achievement-list"></div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- RESUME ANALYSIS MODAL -->
+    <div id="analysis-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="mb-2">Resume Analyzer</h2>
+            <p class="text-secondary mb-4">Upload your current resume (PDF/Word) to get an AI-powered score and
+                suggestions.</p>
+
+            <div id="upload-step">
+                <div class="upload-area" onclick="document.getElementById('file-upload').click()">
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <p class="upload-text">Click to upload or drag & drop</p>
+                    <input type="file" id="file-upload" accept=".pdf,.doc,.docx" hidden>
+                </div>
+            </div>
+
+            <div id="analysis-loading" class="hidden">
+                <div class="circular-chart" style="margin: 0 auto; width: 60px; height: 60px;">
+                    <svg viewBox="0 0 36 36" class="circular-chart-svg">
+                        <path class="circle-bg"
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle" stroke-dasharray="60, 100" stroke="#4F46E5"
+                            style="animation: spin 1s infinite linear;"
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                </div>
+                <p style="margin-top:20px;">Scanning document...</p>
+            </div>
+
+            <div id="analysis-results" class="hidden analysis-result">
+                <div class="score-header" style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3>Your Score</h3>
+                    <h2 class="text-primary">72/100</h2>
+                </div>
+                <div class="analysis-score-bar">
+                    <div class="analysis-score-fill" style="width: 72%;"></div>
+                </div>
+
+                <h4><i class="fa-solid fa-circle-exclamation" style="color:orange;"></i> Improvement Suggestions</h4>
+                <ul class="analysis-list">
+                    <li><i class="fa-solid fa-triangle-exclamation"></i> Summary is too short. Try expanded to 3-4
+                        sentences.</li>
+                    <li><i class="fa-solid fa-triangle-exclamation"></i> Missing quantitative results in Experience.
+                    </li>
+                    <li><i class="fa-solid fa-check" style="color:green;"></i> Contact information is complete.</li>
+                    <li><i class="fa-solid fa-check" style="color:green;"></i> Good use of active verbs.</li>
+                </ul>
+
+                <button class="btn btn-primary" style="width:100%; margin-top:20px;" onclick="closeModal()">Back to
+                    Builder</button>
+            </div>
+
+            <button id="btn-close-modal" class="btn btn-secondary" style="margin-top:10px;"
+                onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
